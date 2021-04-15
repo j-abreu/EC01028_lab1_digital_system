@@ -1,0 +1,28 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity bo is
+	port (
+		clk_acum : in std_logic;
+		coin_val : in std_logic_vector(7 downto 0);
+		price : in std_logic_vector(7 downto 0);
+		reset_acum : in std_logic;
+		release: in std_logic;
+		d : out std_logic
+	);
+end bo;
+
+architecture arch of bo is
+	signal acum_signal : std_logic_vector(7 downto 0);
+	
+	
+	
+begin
+	acum : process(clk)
+	begin
+		if rising_edge(clk) then
+			if 
+				
+	
+end architecture;

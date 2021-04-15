@@ -1,0 +1,99 @@
+# Reading C:/altera/13.0sp1/modelsim_ase/tcl/vsim/pref.tcl 
+# do sistema_digital_run_msim_rtl_vhdl.do 
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Copying C:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied C:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# 
+# vcom -93 -work work {D:/documents/2021.1/phi/quartus/PHI-1.7 - Arquivos/bo.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity bo
+# -- Compiling architecture arch of bo
+# vcom -93 -work work {D:/documents/2021.1/phi/quartus/PHI-1.7 - Arquivos/fsm.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity fsm
+# -- Compiling architecture arch of fsm
+# vcom -93 -work work {D:/documents/2021.1/phi/quartus/PHI-1.7 - Arquivos/digital_system.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity digital_system
+# -- Compiling architecture arch of digital_system
+# -- Loading entity fsm
+# -- Loading entity bo
+# vcom -93 -work work {D:/documents/2021.1/phi/quartus/PHI-1.7 - Arquivos/digital_system_tb.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity digital_system_tb
+# -- Compiling architecture arch of digital_system_tb
+# -- Loading entity digital_system
+# 
+vsim -voptargs=+acc work.digital_system_tb
+# vsim -voptargs=+acc work.digital_system_tb 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.digital_system_tb(arch)
+# Loading work.digital_system(arch)
+# Loading work.fsm(arch)
+# Loading work.bo(arch)
+add wave -position insertpoint  \
+sim:/digital_system_tb/clk \
+sim:/digital_system_tb/reset \
+sim:/digital_system_tb/d \
+sim:/digital_system_tb/has_coin \
+sim:/digital_system_tb/coin_value \
+sim:/digital_system_tb/price \
+sim:/digital_system_tb/input
+run
+run
+run
+run
+wave create -pattern none -portmode in -language vhdl /bo/clk_acum
+# bo
+wave create -pattern none -portmode in -language vhdl -range 7 0 /bo/coin_val
+# bo
+wave create -pattern none -portmode in -language vhdl /bo/reset_acum
+# bo
+wave create -pattern none -portmode in -language vhdl /bo/release
+# bo
+wave create -pattern none -portmode out -language vhdl -range 7 0 /bo/acum_out
+# bo
+wave create -pattern none -portmode out -language vhdl /bo/d
+# bo
+wave create -pattern none -portmode in -language vhdl /fsm/clk
+# fsm
+wave create -pattern none -portmode in -language vhdl /fsm/has_coin
+# fsm
+wave create -pattern none -portmode in -language vhdl /fsm/reset
+# fsm
+wave create -pattern none -portmode in -language vhdl -range 7 0 /fsm/price
+# fsm
+wave create -pattern none -portmode in -language vhdl -range 7 0 /fsm/acum_state
+# fsm
+wave create -pattern none -portmode out -language vhdl /fsm/release
+# fsm
+wave create -pattern none -portmode out -language vhdl /fsm/clk_acum
+# fsm
+wave create -pattern none -portmode out -language vhdl /fsm/reset_acum
+# fsm
+run
