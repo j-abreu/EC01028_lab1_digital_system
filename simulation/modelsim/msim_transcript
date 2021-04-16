@@ -1,5 +1,5 @@
 # Reading C:/altera/13.0sp1/modelsim_ase/tcl/vsim/pref.tcl 
-# do sistema_digital_run_msim_rtl_vhdl.do 
+# do EC01028_lab1_digital_system_run_msim_rtl_vhdl.do 
 # if {[file exists rtl_work]} {
 # 	vdel -lib rtl_work -all
 # }
@@ -10,15 +10,7 @@
 # ** Warning: Copied C:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
 #          Updated modelsim.ini.
 # 
-# vcom -93 -work work {D:/documents/2021.1/phi/quartus/PHI-1.7 - Arquivos/bo.vhd}
-# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
-# -- Loading package STANDARD
-# -- Loading package TEXTIO
-# -- Loading package std_logic_1164
-# -- Loading package NUMERIC_STD
-# -- Compiling entity bo
-# -- Compiling architecture arch of bo
-# vcom -93 -work work {D:/documents/2021.1/phi/quartus/PHI-1.7 - Arquivos/fsm.vhd}
+# vcom -93 -work work {C:/Users/diego/Workspace/FCT/PHI/Lab2/EC01028_lab1_digital_system/src/fsm.vhd}
 # Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -26,7 +18,15 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity fsm
 # -- Compiling architecture arch of fsm
-# vcom -93 -work work {D:/documents/2021.1/phi/quartus/PHI-1.7 - Arquivos/digital_system.vhd}
+# vcom -93 -work work {C:/Users/diego/Workspace/FCT/PHI/Lab2/EC01028_lab1_digital_system/src/bo.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity bo
+# -- Compiling architecture arch of bo
+# vcom -93 -work work {C:/Users/diego/Workspace/FCT/PHI/Lab2/EC01028_lab1_digital_system/src/digital_system.vhd}
 # Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -36,7 +36,7 @@
 # -- Compiling architecture arch of digital_system
 # -- Loading entity fsm
 # -- Loading entity bo
-# vcom -93 -work work {D:/documents/2021.1/phi/quartus/PHI-1.7 - Arquivos/digital_system_tb.vhd}
+# vcom -93 -work work {C:/Users/diego/Workspace/FCT/PHI/Lab2/EC01028_lab1_digital_system/src/digital_system_tb.vhd}
 # Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -46,8 +46,8 @@
 # -- Compiling architecture arch of digital_system_tb
 # -- Loading entity digital_system
 # 
-vsim -voptargs=+acc work.digital_system_tb
-# vsim -voptargs=+acc work.digital_system_tb 
+vsim work.digital_system_tb
+# vsim work.digital_system_tb 
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
@@ -64,36 +64,3 @@ sim:/digital_system_tb/has_coin \
 sim:/digital_system_tb/coin_value \
 sim:/digital_system_tb/price \
 sim:/digital_system_tb/input
-run
-run
-run
-run
-wave create -pattern none -portmode in -language vhdl /bo/clk_acum
-# bo
-wave create -pattern none -portmode in -language vhdl -range 7 0 /bo/coin_val
-# bo
-wave create -pattern none -portmode in -language vhdl /bo/reset_acum
-# bo
-wave create -pattern none -portmode in -language vhdl /bo/release
-# bo
-wave create -pattern none -portmode out -language vhdl -range 7 0 /bo/acum_out
-# bo
-wave create -pattern none -portmode out -language vhdl /bo/d
-# bo
-wave create -pattern none -portmode in -language vhdl /fsm/clk
-# fsm
-wave create -pattern none -portmode in -language vhdl /fsm/has_coin
-# fsm
-wave create -pattern none -portmode in -language vhdl /fsm/reset
-# fsm
-wave create -pattern none -portmode in -language vhdl -range 7 0 /fsm/price
-# fsm
-wave create -pattern none -portmode in -language vhdl -range 7 0 /fsm/acum_state
-# fsm
-wave create -pattern none -portmode out -language vhdl /fsm/release
-# fsm
-wave create -pattern none -portmode out -language vhdl /fsm/clk_acum
-# fsm
-wave create -pattern none -portmode out -language vhdl /fsm/reset_acum
-# fsm
-run
