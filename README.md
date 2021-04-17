@@ -1,5 +1,5 @@
-# EC01028 - Lab 1 - Digital System
-## Implementation of a Digital System in VHDL using Quartus II
+# EC01028 - Lab 2 - Digital System
+## Implementation of a Digital System based on OB (Operation Block) + CB (Control Block) in VHDL using Quartus II
 
 Family name: Cyclone II
 
