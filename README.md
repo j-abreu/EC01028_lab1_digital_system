@@ -1,4 +1,5 @@
-# EC01028_lab1_digital_system
+# EC01028 - Lab 1 - Digital System
+## Implementation of a Digital System in VHDL using Quartus II
 
 Family name: Cyclone II
 
