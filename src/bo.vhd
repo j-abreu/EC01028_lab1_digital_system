@@ -25,7 +25,7 @@ begin
 	begin
 		if reset = '1' then
 			acum_out <= (others => '0');
-		elsif rising_edge(clk) then
+		elsif falling_edge(clk) then
 			acum_out <= sum;
 		end if;
 	end process;
