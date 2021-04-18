@@ -29,7 +29,7 @@ begin
 		s => std_logic_vector(to_unsigned(price, nbits))
 	);
 	
-	process (clk)
+	read_data : process (clk)
 		variable i : integer := 0;
 		begin
 			if rising_edge(clk) then
@@ -42,9 +42,25 @@ begin
 				end if;
 			end if;
 		end process;
-		
+	
+	update_c : process (clk)
+		variable i : integer := 0;
+		begin
+			if rising_edge(clk) then
+				i := i + 1;
+			end if;
+			if falling_edge(clk) then
+				if i = 3 then
+					c <= '1';
+				elsif i = 4 then
+					i := 0;
+					c <= '0';
+				end if;
+			end if;
+		end process;
+	
 	clk <= not clk after 5 ns;
-	reset <= not reset after 100 ns;
-	c <= not c after 10 ns;
+	reset <= not reset after 300 ns;
+	
 
 end architecture;
