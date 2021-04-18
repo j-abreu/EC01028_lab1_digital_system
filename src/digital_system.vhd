@@ -3,41 +3,49 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 entity digital_system is 
-	generic (
-		price : std_logic_vector
+	generic(
+		nbits : integer := 8
 	);
 	port (
-		clk, has_coin, reset : in std_logic;
-		coin_value : in std_logic_vector;
+		clk, c, reset : in std_logic;
+		a : in std_logic_vector(nbits - 1 downto 0);
+		s : in std_logic_vector(nbits - 1 downto 0);
 		d : out std_logic
 	);
 end digital_system;
 
 architecture arch of digital_system is
-	signal acum_state: std_logic_vector(7 downto 0);
-	signal release, clk_acum, reset_acum : std_logic;
+	signal acum_sig : std_logic_vector(nbits - 1 downto 0);
+	signal c_bo_sig, r_bo_sig, reset_bo_sig : std_logic;
 
 begin
 	
 	control : entity work.fsm
+	generic map(
+		nbits => nbits
+	)
 	port map (
 		clk => clk,
-		has_coin => has_coin,
 		reset => reset,
-		price => price,
-		acum_state => acum_state,
-		release => release,
-		clk_acum => clk_acum,
-		reset_acum => reset_acum
+		c => c,
+		s => s,
+		acum => acum_sig,
+		c_bo => c_bo_sig,
+		r_bo => r_bo_sig,
+		reset_bo => reset_bo_sig
 	);
 	
 	datapath : entity work.bo
+	generic map(
+		nbits => nbits
+	)
 	port map (
-		clk_acum => clk_acum,
-		coin_val => coin_value,
-		reset_acum => reset_acum,
-		release => release,
-		acum_out => acum_state,
+		clk => clk,
+		c => c_bo_sig,
+		r => r_bo_sig,
+		reset => reset_bo_sig,
+		a => a,
+		acum => acum_sig,
 		d => d
 	);
 
